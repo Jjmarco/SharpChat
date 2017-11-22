@@ -12,7 +12,7 @@ namespace Chat
         {
         }
 
-        public String Message
+        public new String Message
         {
             get
             {

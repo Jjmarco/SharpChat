@@ -5,18 +5,18 @@ using System.Text;
 
 namespace Chat
 {
-    class UserUnknownException : AuthentificationException
+    class UserExistsException : AuthentificationException
     {
-        public UserUnknownException(String log)
+        public UserExistsException(String log)
             : base(log)
         {
         }
 
-        public String Message
+        public new String Message
         {
             get
             {
-                return "L'utilisateur " + login + " n'existe pas.";
+                return "L'utilisateur " + login + " existe déjà";
             }
         }
     }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chat.Net
+namespace Chat
 {
-    class TCPClient
+    public interface MessageConnection
     {
+        Message getMessage();
+        void sendMessage(Message m);
     }
 }

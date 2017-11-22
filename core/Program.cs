@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace Chat
 {
@@ -29,7 +30,7 @@ namespace Chat
 
             Console.Read();*/
 
-            AuthentificationManager am = new Authentification();
+            /*AuthentificationManager am = new Authentification();
 
             // users management
 
@@ -97,7 +98,12 @@ namespace Chat
                 Console.WriteLine(e);
             }
 
-            Console.Read();
+            Console.Read();*/
+
+            TCPServerTest test = new TCPServerTest();
+
+            test.startServer(25565);
+            new Thread(test.run).Start();
         }
     }
 }
