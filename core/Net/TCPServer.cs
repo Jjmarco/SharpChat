@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace Chat
 {
@@ -71,6 +72,7 @@ namespace Chat
             else gereClient(commSocket);
         }
 
+        // throws IOException if socket is closed prematurely
         public Message getMessage()
         {
             Message m = null;

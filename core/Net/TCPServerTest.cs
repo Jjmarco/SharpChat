@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -12,8 +13,24 @@ namespace Chat
     {
         public override void gereClient(TcpClient commSock)
         {
-            Console.WriteLine("Connexion acceptée: " + ((IPEndPoint)commSock.Client.RemoteEndPoint).Address + ":" + ((IPEndPoint)commSock.Client.RemoteEndPoint).Port);
-            Console.WriteLine(getMessage().ToString());
+            string address = ((IPEndPoint)commSock.Client.RemoteEndPoint).Address + ":" + ((IPEndPoint)commSock.Client.RemoteEndPoint).Port;
+
+            Console.WriteLine("Connexion acceptée: " + address);
+
+            while (commSock.Connected)
+            {
+                try
+                {
+                    Console.WriteLine(getMessage().ToString());
+                }
+                catch(IOException io)
+                {
+                    Console.WriteLine("Erreur de communication : " + io.Message);
+                    break;
+                }
+            }
+
+            Console.WriteLine("Connexion perdue avec " + address);
         }
     }
 }

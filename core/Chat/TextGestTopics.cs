@@ -18,15 +18,10 @@ namespace Chat
         public List<string> listTopics()
         {
             Console.WriteLine("The currently opened topics are:");
-            try
-            {
-                foreach (String topic in chatrooms.Keys)
-                    Console.WriteLine(topic);
-                return chatrooms.Keys.ToList<String>();
-            }
-            catch (NullReferenceException e)
-            {
-            }
+            foreach (String topic in chatrooms.Keys)
+                Console.WriteLine(topic);
+            return chatrooms.Keys.ToList<String>();
+
             return null;
         }
 

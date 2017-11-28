@@ -13,17 +13,19 @@ namespace ChatClientTest
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 3; i++)
+            TCPClient client = new TCPClient(IPAddress.Loopback, 25565);
+            client.connect();
+
+            string input = "";
+
+            Console.Write("> ");
+
+            while ((input = Console.ReadLine()) != "exit")
             {
-                TCPClient client = new TCPClient(IPAddress.Loopback, 25565);
-                client.connect();
-
-                Message m = new Message(Message.Header.INFO, new List<String> { "lol " + i });
-
+                Message m = new Message(Message.Header.INFO, new List<String>(input.Split(' ')));
                 client.sendMessage(m);
+                Console.Write("> ");
             }
-
-            Console.Read();
         }
     }
 }
