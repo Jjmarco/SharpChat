@@ -34,9 +34,9 @@ namespace Chat.Server
                         break;
                     case Message.Header.JOIN_TOPIC:
                         Console.WriteLine("Attempting to join topic " + m.data[0]);
-                        IChatroom cr = concreteGT.joinTopic(m.data[0]);
+                        ServerChatRoom cr = concreteGT.joinTopic(m.data[0]);
                         response = new Message(Message.Header.JOIN_REPLY,
-                                               new List<String>{ this.getPort().ToString() });
+                                               new List<String>{ cr.getPort().ToString() });
                         break;
                 }
 

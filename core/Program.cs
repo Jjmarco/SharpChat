@@ -105,10 +105,16 @@ namespace Chat
             test.startServer(25565);
             new Thread(test.run).Start();*/
 
-            Server.ServerGestTopics server = new Server.ServerGestTopics();
-            server.startServer(25565);
-
-            new Thread(server.run).Start();
+            try
+            {
+                Server.ServerGestTopics server = new Server.ServerGestTopics();
+                server.startServer(25565);
+                server.run();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }

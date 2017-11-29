@@ -25,6 +25,7 @@ namespace Chat.Client
             int portCR = int.Parse(getMessage().data[0]);
             proxyCR.setServer(IPAddress.Loopback, portCR);
             proxyCR.connect();
+            Console.WriteLine(portCR + " test");
             return proxyCR;
         }
 

@@ -34,6 +34,7 @@ namespace Chat.Client
 
         public void post(string msg, IChatter c)
         {
+            Console.WriteLine(msg);
             sendMessage(new Message(Message.Header.POST,
                                     new List<String> { msg, c.getAlias() }));
         }

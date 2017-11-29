@@ -49,6 +49,7 @@ namespace Chat.Server
 
         public void receiveAMessage(string msg, IChatter c)
         {
+            Console.WriteLine("Message de " + c.getAlias() + " reçu: '" + msg + "'");
             sendMessage(new Message(Message.Header.RECV_MSG, new List<string>{ msg, c.getAlias() }));
         }
 
