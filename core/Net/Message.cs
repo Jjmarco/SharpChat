@@ -9,10 +9,18 @@ namespace Chat
     [Serializable]
     public class Message
     {
-        public enum Header { CONTROL, INFO, MESSAGE };
+        public enum Header {LIST_TOPICS,
+                            LIST_TOPICS_REPLY,
+                            CREATE_TOPIC,
+                            JOIN_TOPIC,
+                            JOIN_REPLY,
+                            JOIN_CR,
+                            POST,
+                            QUIT_CR,
+                            RECV_MSG};
 
-        Header head;
-        List<String> data;
+        public readonly Header head;
+        public readonly List<String> data;
 
         public Message(Header h, List<String> d)
         {

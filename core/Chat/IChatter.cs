@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chat
 {
-    interface IChatter
+    public interface IChatter
     {
         void receiveAMessage(String msg, IChatter c);
         String getAlias();

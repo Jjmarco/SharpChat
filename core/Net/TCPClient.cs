@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace Chat
 {
@@ -15,6 +16,11 @@ namespace Chat
         private TcpClient _sock;
         private IPAddress _IP;
         private int _port;
+
+        public TCPClient()
+        {
+            _sock = new TcpClient();
+        }
 
         public TCPClient(IPAddress adr, int port)
         {
@@ -30,6 +36,7 @@ namespace Chat
 
         public void connect()
         {
+            Console.WriteLine(_IP + ":" +_port);
             _sock.Connect(_IP, _port);
         }
 
@@ -44,6 +51,10 @@ namespace Chat
             catch (SerializationException se)
             {
                 Console.WriteLine("Erreur: message invalide: " + se.Message);
+            }
+            catch (IOException io)
+            {
+                Console.WriteLine("Erreur : " + io.Message);
             }
 
             return m;

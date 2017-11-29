@@ -100,10 +100,15 @@ namespace Chat
 
             Console.Read();*/
 
-            TCPServerTest test = new TCPServerTest();
+            /*TCPServerTest test = new TCPServerTest();
 
             test.startServer(25565);
-            new Thread(test.run).Start();
+            new Thread(test.run).Start();*/
+
+            Server.ServerGestTopics server = new Server.ServerGestTopics();
+            server.startServer(25565);
+
+            new Thread(server.run).Start();
         }
     }
 }

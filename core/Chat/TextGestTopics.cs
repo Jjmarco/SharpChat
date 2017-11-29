@@ -8,7 +8,7 @@ namespace Chat
 {
     class TextGestTopics : ITopicsManager
     {
-        private Dictionary<String, IChatroom> chatrooms;
+        protected Dictionary<String, IChatroom> chatrooms;
 
         public TextGestTopics()
         {
@@ -21,8 +21,6 @@ namespace Chat
             foreach (String topic in chatrooms.Keys)
                 Console.WriteLine(topic);
             return chatrooms.Keys.ToList<String>();
-
-            return null;
         }
 
         public IChatroom joinTopic(String topic)

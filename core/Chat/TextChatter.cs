@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chat
 {
-    class TextChatter : IChatter
+    public class TextChatter : IChatter
     {
         private String _pseudo;
 
